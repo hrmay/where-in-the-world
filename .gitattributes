@@ -1,4 +1,5 @@
 static/css/*.css linguist-vendored
 static/css/ie/*.css linguist-vendored
+static/js/*.js linguist-vendored
 sass/*.scss linguist-vendored
 templates/*.html linguist-vendored
