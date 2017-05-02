@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Strata by HTML5 UP</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="{{ url_for('static', filename='css/ie/html5shiv.js') }}"></script><![endif]-->
+		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.poptrox.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/init.js') }}"></script>
+		<noscript> 
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/skel.css') }}" />
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/style-xlarge.css') }}" />
+		 </noscript> 
+		<!--[if lte IE 8]><link rel="stylesheet" href="{{ url_for('static', filename='css/ie/v8.css') }}" /><![endif]-->
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="#" class="image avatar"><img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="" /></a>
+				<h1><strong>Where in the world...</strong><br />
+				
+				crafted by <a href="http://evanmay.com">Evan May</a>.</h1>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+		
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>Search for countries or cities<br />
+							by name, code, or continent</h2>
+						</header>
+						
+						{% if selectedMenu == 'Home' %}
+						<div class="row">
+							<div class="8u 12u$(2)">
+								<form method="post" action="/">
+									<div class="row uniform 50%">
+										
+										<div class="12u$"><input type = "text" name="worldSearch" id="message" placeholder="Search the World" ></textarea></div>
+									</div>
+								&nbsp;<br />
+								<ul class="actions">
+									<li><input type="submit" value="Find" /></li>
+								</ul>
+								</form>
+							</div>
+							<div class="4u$ 12u$(2)">
+								
+							</div>
+						</div>
+						{% endif %}
+						
+						
+						{% if selectedMenu == 'Find' %}
+						<div class="row">
+							<div class="8u 12u$(2)">
+								<form method="post" action="/">
+									<div class="row uniform 50%">
+										<table>
+											<thead>
+												<tr>
+													<th>{{headers[0]}}</th>
+													<th>{{headers[1]}}</th>
+													<th>{{headers[2]}}</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for result in results %}
+												<tr>
+													<td>{{result[0]}}</td>
+													<td>{{result[1]}}</td>
+													<td>{{result[2]}}</td>
+												</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+										<div class="12u$"><input type = "text" name="worldSearch" id="message" placeholder="Search the World" ></textarea></div>
+									</div>
+								&nbsp;<br />
+								<ul class="actions">
+									<li><input type="submit" value="Find" /></li>
+								</ul>
+								</form>
+							</div>
+							<div class="4u$ 12u$(2)">
+								
+							</div>
+						</div>
+						{% endif %}
+						
+						
+						{% if selectedMenu == 'Nothing' %}
+						<div class="row">
+							<div class="8u 12u$(2)">
+								<p>No results found.</p>
+								<form method="post" action="/">
+									<div class="row uniform 50%">
+										<div class="12u$"><input type = "text" name="worldSearch" id="message" placeholder="Search the World" ></textarea></div>
+									</div>
+								&nbsp;<br />
+								<ul class="actions">
+									<li><input type="submit" value="Find" /></li>
+								</ul>
+								</form>
+							</div>
+							<div class="4u$ 12u$(2)">
+								
+							</div>
+						</div>
+						{% endif %}
+					</section>
+<section>
+<!-- Maybe results can go in this section -->
+</section>
+				
+				
+
+			</div>
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+	</body>
+</html>
